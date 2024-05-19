@@ -1,0 +1,6 @@
+.sliderImageGradient{
+    height:"100%";
+    width:"100%";
+    position:'absolute';
+    background-image: linear-gradient(to bottom, to bottom, transparent 100%, red 10%);
+}
