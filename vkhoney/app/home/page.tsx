@@ -7,6 +7,7 @@ import Rating from "@/src/rating/rating";
 import Customers from "@/src/cutomers/customers";
 import FAQ from "@/src/faq/faq";
 import Aboutus from "@/src/aboutus/aboutus";
+import Contactus from "@/src/contactus/contactus";
 
 
 
@@ -22,6 +23,7 @@ const Home = () => {
             <Customers />
             <Aboutus />
             <FAQ />
+            <Contactus />
         </div>
     )
 }

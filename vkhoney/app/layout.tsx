@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter , Montserrat , Poppins} from "next/font/google";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "@/src/navbar/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Montserrat({ subsets: ["latin"],weight:["500"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",

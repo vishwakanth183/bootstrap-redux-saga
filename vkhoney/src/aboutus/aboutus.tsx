@@ -13,7 +13,7 @@ const Aboutus = () => {
                         <div className="cols">
                             <img src={aboutusImg} style={{ height: "100%", width: "100%" }} />
                         </div>
-                        <div className="cols">
+                        <div className="cols mt-5 mt-md-0">
                             <p className="lh-sm">
                                 VK Restaurant is more than just a place to eat; it's a culinary journey waiting to be explored. Fueled by a deep love for food and a desire to connect people, we offer exceptional experiences that tantalize taste buds and nourish souls. As you enter our warm and inviting atmosphere, prepare to embark on a delightful exploration of flavors.
 

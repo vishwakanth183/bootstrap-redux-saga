@@ -57,7 +57,7 @@ const Pricing = () => {
 
     return (
         <div className="container" id="pricing">
-            <div className="row row-cols-1 row-cols-md-3">
+            <div className="row row-cols-1 row-cols-lg-3">
                 {
                     pricingData.map((item) => {
                         return <div className="col mt-5 mb-5">
