@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter , Montserrat , Poppins} from "next/font/google";
+import { Inter, Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from "@/src/navbar/navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "@/src/components/navbar/navbar";
 
-const inter = Montserrat({ subsets: ["latin"],weight:["500"] });
+const inter = Montserrat({ subsets: ["latin"], weight: ["500"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navbar />
+        <div style={{ marginTop: 55, zIndex: 100 }}>{children}</div>
+      </body>
     </html>
   );
 }
