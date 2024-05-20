@@ -28,7 +28,7 @@ const Rating = () => {
     ]
 
     return (
-        <div className="container pb-5">
+        <div className="pb-5">
             <div className="card py-3">
                 <div className="card-body">
 

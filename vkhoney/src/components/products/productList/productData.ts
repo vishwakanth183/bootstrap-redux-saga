@@ -299,10 +299,10 @@ export const restuarantFilter = [
     displayName: "Price Range",
     showColors: false,
     valueArray: [
-      { valueName: "0 - Under ₹500", active: false }, // Added currency symbol
-      { valueName: "₹500 - ₹1000", active: true },
-      { valueName: "₹1000 - ₹5000", active: false },
-      { valueName: "Above ₹5000", active: false }, // Simplified price ranges
+      { valueName: "0 - Under $30", active: true }, // Added currency symbol
+      { valueName: "$30 - $50", active: true },
+      { valueName: "$50 - $100", active: false },
+      { valueName: "Above $100", active: false }, // Simplified price ranges
     ],
   },
   {
@@ -449,3 +449,61 @@ export const nonvegArray = [
     isNonVeg: true,
   },
 ];
+
+export interface FoodItem {
+  title: string;
+  price: number;
+  mrp: number;
+  discount: number;
+  rating: {
+    stars: number;
+    totalReview: number;
+  };
+  url: string;
+  isNonVeg: boolean;
+}
+
+export const nonVegProductOptions = [
+  {
+    category: 'Add-ons',
+    options: [
+      { id: 1, name: 'Extra Cheese', price: 1.00, active: true },
+      { id: 2, name: 'Bacon', price: 1.50 },
+      { id: 3, name: 'Mushrooms', price: 1.00 }
+    ]
+  },
+  {
+    category: 'Extra Toppings',
+    options: [
+      { id: 4, name: 'Jalapenos', price: 0.50, active: true },
+      { id: 5, name: 'Olives', price: 0.75 },
+      { id: 6, name: 'Pepperoni', price: 1.50 }
+    ]
+  },
+  {
+    category: 'Sauces',
+    options: [
+      { id: 7, name: 'Barbecue Sauce', price: 0.25, active: true },
+      { id: 8, name: 'Garlic Sauce', price: 0.25 },
+      { id: 9, name: 'Spicy Mayo', price: 0.25 }
+    ]
+  },
+  {
+    category: 'Cooking Preferences',
+    options: [
+      { id: 10, name: 'Well-done', price: 0.00 },
+      { id: 11, name: 'Medium-rare', price: 0.00, active: true },
+      { id: 12, name: 'Rare', price: 0.00 }
+    ]
+  },
+  {
+    category: 'Side Dishes',
+    options: [
+      { id: 13, name: 'Fries', price: 2.00, active: true },
+      { id: 14, name: 'Onion Rings', price: 2.50 },
+      { id: 15, name: 'Coleslaw', price: 1.50 }
+    ]
+  }
+];
+
+export const description = "Indulge in the ultimate delight for non-veg lovers with our succulent grilled chicken platter. Perfectly marinated and grilled to perfection, each bite offers a burst of flavor that tantalizes your taste buds. Accompanied by crispy fries, fresh coleslaw, and your choice of savory sauces, this hearty dish promises an unforgettable culinary experience. Treat yourself to the best of non-veg cuisine with our mouthwatering creation."

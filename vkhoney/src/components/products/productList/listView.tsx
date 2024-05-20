@@ -1,10 +1,20 @@
-import React from "react";
-import { nonvegArray } from "./productData";
+"use client"
+
+import React, { useState } from "react";
+import { FoodItem, nonvegArray } from "./productData";
 import { FaStar } from "react-icons/fa6";
+import { FaOpencart } from "react-icons/fa";
+import ProductDetails from "../productDetails/productDetails";
 
 const ListView = () => {
   const sampleImg =
     "https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=600";
+
+  const [showModal, setShowModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<FoodItem | null>();
+
+  const handleOpenModal = (productData: FoodItem) => { setShowModal(true), setSelectedProduct(productData) };
+  const handleCloseModal = () => { setShowModal(false), setSelectedProduct(null) };
 
   return (
     <div className="card">
@@ -32,14 +42,7 @@ const ListView = () => {
         </div>
 
         {/* Grid View */}
-        {/* <div className="row gx-3 pt-3">
-          {nonvegArray.map((product, index) => (
-            <div className="card col-12 col-md-4" key={index}>
-              <div className="div">Custom column padding</div>
-            </div>
-          ))}
-        </div> */}
-        <div className="container overflow-hidden mt-5">
+        <div className="container overflow-hidden mt-4">
           <div className="row gx-5 gy-3">
             {nonvegArray.map((product, index) => {
               return (
@@ -50,11 +53,15 @@ const ListView = () => {
                 // </div>
                 <div className="col-md-4">
                   <div className="card" key={index}>
+
                     <img
                       src={product.url ? product.url : sampleImg}
                       alt="prod-image"
                       className="card-img-top"
+                      style={{ cursor: 'pointer' }} // Optional for hover effect
+                      onClick={() => handleOpenModal(product)}
                     />
+
                     <div className="card-body">
                       {/* product name */}
                       <div className="card-title fw-bolder">
@@ -83,8 +90,9 @@ const ListView = () => {
                         </span>
                       </div>
                       {/* add to cart button */}
-                      <button className="btn btn-primary w-100 my-2">
+                      <button className="btn btn-primary w-100 my-2 d-flex align-items-center justify-content-center">
                         Add to bag
+                        <FaOpencart size={20} style={{ marginLeft: 5 }} />
                       </button>
                     </div>
                   </div>
@@ -124,6 +132,30 @@ const ListView = () => {
             </li>
           </ul>
         </nav>
+
+        {/* Product Modal */}
+        {/* Modal backdrop */}
+        {showModal && <div className="modal-backdrop fade show"></div>}
+        <div className={`modal backdrop fade modal-lg show ${showModal ? "d-block" : "d-none"}`}>
+          <div className="modal-dialog modal-dialog-scrollable">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title fw-bolder" id="exampleModalLabel">Product Details</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleCloseModal}></button>
+              </div>
+              <div className="modal-body">
+                {/* Add your modal content here */}
+                <ProductDetails productData={selectedProduct!}/>
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-primary my-2 d-flex align-items-center justify-content-center">
+                  Add to bag
+                  <FaOpencart size={20} style={{ marginLeft: 5 }} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
