@@ -32,46 +32,66 @@ const ListView = () => {
         </div>
 
         {/* Grid View */}
-        <div className="row gx-3">
-          {nonvegArray.map((product, index) => {
-            return (
-              <div className="card col-12 col-md-4 p-0" key={index}>
-                <img
-                  src={product.url ? product.url : sampleImg}
-                  alt="prod-image"
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  {/* product name */}
-                  <div className="card-title fw-bolder">{product.title}</div>
+        {/* <div className="row gx-3 pt-3">
+          {nonvegArray.map((product, index) => (
+            <div className="card col-12 col-md-4" key={index}>
+              <div className="div">Custom column padding</div>
+            </div>
+          ))}
+        </div> */}
+        <div className="container overflow-hidden mt-5">
+          <div className="row gx-5 gy-3">
+            {nonvegArray.map((product, index) => {
+              return (
+                // <div className="col-md-4">
+                //   <div className="p-3 border bg-light">
+                //     Custom column padding
+                //   </div>
+                // </div>
+                <div className="col-md-4">
+                  <div className="card" key={index}>
+                    <img
+                      src={product.url ? product.url : sampleImg}
+                      alt="prod-image"
+                      className="card-img-top"
+                    />
+                    <div className="card-body">
+                      {/* product name */}
+                      <div className="card-title fw-bolder">
+                        {product.title}
+                      </div>
 
-                  {/* rating */}
-                  <div className="d-flex flex-row">
-                    <div className="hstack">
-                      <FaStar color="gold" />
-                      <FaStar color="gold" />
-                      <FaStar color="gold" />
-                      <FaStar color="gold" />
-                      <FaStar color="gold" />
+                      {/* rating */}
+                      <div className="d-flex flex-row">
+                        <div className="hstack">
+                          <FaStar color="gold" />
+                          <FaStar color="gold" />
+                          <FaStar color="gold" />
+                          <FaStar color="gold" />
+                          <FaStar color="gold" />
+                        </div>
+                        <span className="ms-2">
+                          ({product.rating.totalReview})
+                        </span>
+                      </div>
+
+                      {/* price */}
+                      <div className="price">
+                        <span>₹{product.price}</span>
+                        <span className="ms-3 text-secondary text-opacity-50 text-decoration-line-through">
+                          ₹{product.mrp}
+                        </span>
+                      </div>
+                      {/* add to cart button */}
+                      <button className="btn btn-primary w-100 my-2">
+                        Add to bag
+                      </button>
                     </div>
-                    <span className="ms-2">({product.rating.totalReview})</span>
                   </div>
-
-                  {/* price */}
-                  <div className="price">
-                    <span>₹{product.price}</span>
-                    <span className="ms-3 text-secondary text-opacity-50 text-decoration-line-through">
-                      ₹{product.mrp}
-                    </span>
-                  </div>
-                  {/* add to cart button */}
-                  <button className="btn btn-primary w-100 my-2">
-                    Add to bag
-                  </button>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         {/* Pagination */}
