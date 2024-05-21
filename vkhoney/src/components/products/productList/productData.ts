@@ -465,45 +465,64 @@ export interface FoodItem {
 
 export const nonVegProductOptions = [
   {
-    category: 'Add-ons',
+    category: "Add-ons",
     options: [
-      { id: 1, name: 'Extra Cheese', price: 1.00, active: true },
-      { id: 2, name: 'Bacon', price: 1.50 },
-      { id: 3, name: 'Mushrooms', price: 1.00 }
-    ]
+      { id: 1, name: "Extra Cheese", price: 1.0, active: true },
+      { id: 2, name: "Bacon", price: 1.5 },
+      { id: 3, name: "Mushrooms", price: 1.0 },
+    ],
   },
   {
-    category: 'Extra Toppings',
+    category: "Extra Toppings",
     options: [
-      { id: 4, name: 'Jalapenos', price: 0.50, active: true },
-      { id: 5, name: 'Olives', price: 0.75 },
-      { id: 6, name: 'Pepperoni', price: 1.50 }
-    ]
+      { id: 4, name: "Jalapenos", price: 0.5, active: true },
+      { id: 5, name: "Olives", price: 0.75 },
+      { id: 6, name: "Pepperoni", price: 1.5 },
+    ],
   },
   {
-    category: 'Sauces',
+    category: "Sauces",
     options: [
-      { id: 7, name: 'Barbecue Sauce', price: 0.25, active: true },
-      { id: 8, name: 'Garlic Sauce', price: 0.25 },
-      { id: 9, name: 'Spicy Mayo', price: 0.25 }
-    ]
+      { id: 7, name: "Barbecue Sauce", price: 0.25, active: true },
+      { id: 8, name: "Garlic Sauce", price: 0.25 },
+      { id: 9, name: "Spicy Mayo", price: 0.25 },
+    ],
   },
   {
-    category: 'Cooking Preferences',
+    category: "Cooking Preferences",
     options: [
-      { id: 10, name: 'Well-done', price: 0.00 },
-      { id: 11, name: 'Medium-rare', price: 0.00, active: true },
-      { id: 12, name: 'Rare', price: 0.00 }
-    ]
+      { id: 10, name: "Well-done", price: 0.0 },
+      { id: 11, name: "Medium-rare", price: 0.0, active: true },
+      { id: 12, name: "Rare", price: 0.0 },
+    ],
   },
   {
-    category: 'Side Dishes',
+    category: "Side Dishes",
     options: [
-      { id: 13, name: 'Fries', price: 2.00, active: true },
-      { id: 14, name: 'Onion Rings', price: 2.50 },
-      { id: 15, name: 'Coleslaw', price: 1.50 }
-    ]
-  }
+      { id: 13, name: "Fries", price: 2.0, active: true },
+      { id: 14, name: "Onion Rings", price: 2.5 },
+      { id: 15, name: "Coleslaw", price: 1.5 },
+    ],
+  },
 ];
 
-export const description = "Indulge in the ultimate delight for non-veg lovers with our succulent grilled chicken platter. Perfectly marinated and grilled to perfection, each bite offers a burst of flavor that tantalizes your taste buds. Accompanied by crispy fries, fresh coleslaw, and your choice of savory sauces, this hearty dish promises an unforgettable culinary experience. Treat yourself to the best of non-veg cuisine with our mouthwatering creation."
+export const description =
+  "Indulge in the ultimate delight for non-veg lovers with our succulent grilled chicken platter. Perfectly marinated and grilled to perfection, each bite offers a burst of flavor that tantalizes your taste buds. Accompanied by crispy fries, fresh coleslaw, and your choice of savory sauces, this hearty dish promises an unforgettable culinary experience. Treat yourself to the best of non-veg cuisine with our mouthwatering creation.";
+
+export const spicyAddons = [
+  "Chopped onions",
+  "Jalapeño slices",
+  "Spicy mayo",
+  "Red chili flakes",
+  "Pickled veggies",
+];
+
+export function getRandomSpicyAddons() {
+  let addonsArray = spicyAddons;
+
+  // Shuffle the array to randomize the order
+  addonsArray.sort(() => Math.random() - 0.5);
+
+  // Slice the first 3 elements to get a sub-array
+  return addonsArray.slice(0, 3);
+}

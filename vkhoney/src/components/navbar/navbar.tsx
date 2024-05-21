@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
+import { FaOpencart } from "react-icons/fa6";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,15 +23,15 @@ const Navbar = () => {
     },
     {
       menuName: "Pricing",
-      navigateTo: "#pricing",
+      navigateTo: "pricing",
     },
     {
       menuName: "Customers",
-      navigateTo: "#customers",
+      navigateTo: "customers",
     },
     {
       menuName: "About",
-      navigateTo: "#aboutus",
+      navigateTo: "aboutus",
     },
     {
       menuName: "FAQ",
@@ -39,6 +40,10 @@ const Navbar = () => {
     {
       menuName: "Contact",
       navigateTo: "#contactus",
+    },
+    {
+      menuName: "Cart",
+      navigateTo: "cart",
     },
   ];
 
@@ -73,7 +78,21 @@ const Navbar = () => {
                       activePage == menu.menuName ? "active" : "inactive"
                     }`}
                   >
-                    {menu.menuName}
+                    {menu.menuName == "Cart" ? (
+                      <div>
+                        <div className="text d-block d-md-none">
+                          {menu.menuName}
+                        </div>
+                        <div className="position-relative d-none d-md-block">
+                          <FaOpencart size={18} />
+                          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-0">
+                            4
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      menu.menuName
+                    )}
                   </Link>
                 </li>
               );

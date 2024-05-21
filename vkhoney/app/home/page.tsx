@@ -7,15 +7,49 @@ import Customers from "@/src/components/cutomers/customers";
 import FAQ from "@/src/components/faq/faq";
 import Aboutus from "@/src/components/aboutus/aboutus";
 import Contactus from "@/src/components/contactus/contactus";
+import Categories from "@/src/components/category/category";
+import {
+  briyaniArray,
+  icecreamArray,
+  juiceArray,
+  pastryArray,
+  vegArray,
+} from "@/src/components/category/categorydata";
 
 const Home = () => {
   return (
     <div style={{ minHeight: "100vh" }} className="bg-white">
-      {/* <Navbar /> */}
       <Slider />
-      <Pricing />
-      <Customers />
-      <Aboutus />
+      {/* Non veg */}
+      <Categories
+        title="Indian Delicacies"
+        categoryArray={briyaniArray}
+        key={"Category1"}
+      />
+      {/* Veg */}
+      <Categories
+        title="Curries & Creations"
+        categoryArray={vegArray}
+        key={"Category2"}
+      />
+      {/* Falooda */}
+      <Categories
+        title="Liquid Sunshine"
+        categoryArray={juiceArray}
+        key={"Category3"}
+      />
+      {/* Juices */}
+      <Categories
+        title="The Ultimate Icy Indulgence"
+        categoryArray={icecreamArray}
+        key={"Category4"}
+      />
+      {/* Pastry */}
+      <Categories
+        title="A World of Sweet Endings"
+        categoryArray={pastryArray}
+        key={"Category4"}
+      />
       <FAQ />
       <Contactus />
     </div>

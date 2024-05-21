@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import { FoodItem, nonvegArray } from "./productData";
@@ -13,8 +13,12 @@ const ListView = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<FoodItem | null>();
 
-  const handleOpenModal = (productData: FoodItem) => { setShowModal(true), setSelectedProduct(productData) };
-  const handleCloseModal = () => { setShowModal(false), setSelectedProduct(null) };
+  const handleOpenModal = (productData: FoodItem) => {
+    setShowModal(true), setSelectedProduct(productData);
+  };
+  const handleCloseModal = () => {
+    setShowModal(false), setSelectedProduct(null);
+  };
 
   return (
     <div className="card">
@@ -53,12 +57,11 @@ const ListView = () => {
                 // </div>
                 <div className="col-md-4">
                   <div className="card" key={index}>
-
                     <img
                       src={product.url ? product.url : sampleImg}
                       alt="prod-image"
                       className="card-img-top"
-                      style={{ cursor: 'pointer' }} // Optional for hover effect
+                      style={{ cursor: "pointer" }} // Optional for hover effect
                       onClick={() => handleOpenModal(product)}
                     />
 
@@ -84,9 +87,9 @@ const ListView = () => {
 
                       {/* price */}
                       <div className="price">
-                        <span>₹{product.price}</span>
+                        <span>${product.price}</span>
                         <span className="ms-3 text-secondary text-opacity-50 text-decoration-line-through">
-                          ₹{product.mrp}
+                          ${product.mrp}
                         </span>
                       </div>
                       {/* add to cart button */}
@@ -136,16 +139,28 @@ const ListView = () => {
         {/* Product Modal */}
         {/* Modal backdrop */}
         {showModal && <div className="modal-backdrop fade show"></div>}
-        <div className={`modal backdrop fade modal-lg show ${showModal ? "d-block" : "d-none"}`}>
+        <div
+          className={`modal backdrop fade modal-lg show ${
+            showModal ? "d-block" : "d-none"
+          }`}
+        >
           <div className="modal-dialog modal-dialog-scrollable">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title fw-bolder" id="exampleModalLabel">Product Details</h5>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={handleCloseModal}></button>
+                <h5 className="modal-title fw-bolder" id="exampleModalLabel">
+                  Product Details
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  onClick={handleCloseModal}
+                ></button>
               </div>
               <div className="modal-body">
                 {/* Add your modal content here */}
-                <ProductDetails productData={selectedProduct!}/>
+                <ProductDetails productData={selectedProduct!} />
               </div>
               <div className="modal-footer">
                 <button className="btn btn-primary my-2 d-flex align-items-center justify-content-center">

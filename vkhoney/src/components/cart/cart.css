@@ -1,0 +1,9 @@
+.cartSummary {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .cartSummary {
+    position: fixed;
+  }
+}
